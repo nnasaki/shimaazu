@@ -23,6 +23,9 @@ public class ToDoItem {
     @com.google.gson.annotations.SerializedName("complete")
     private boolean mComplete;
 
+    @com.google.gson.annotations.SerializedName("name")
+    private String mName;
+
     /**
      * ToDoItem constructor
      */
@@ -99,5 +102,13 @@ public class ToDoItem {
     @Override
     public boolean equals(Object o) {
         return o instanceof ToDoItem && ((ToDoItem) o).mId == mId;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public void setName(String mName) {
+        this.mName = mName;
     }
 }

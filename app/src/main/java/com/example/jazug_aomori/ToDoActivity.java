@@ -58,6 +58,8 @@ public class ToDoActivity extends Activity {
      */
     private ProgressBar mProgressBar;
 
+    private EditText mTextName;
+
     /**
      * Initializes the activity
      */
@@ -93,6 +95,8 @@ public class ToDoActivity extends Activity {
                     return false;
                 }
             });
+
+            mTextName = (EditText) findViewById(R.id.textName);
 
             // Create an adapter to bind the items with the view
             mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
@@ -180,6 +184,7 @@ public class ToDoActivity extends Activity {
         final ToDoItem item = new ToDoItem();
 
         item.setText(mTextNewToDo.getText().toString());
+        item.setName(mTextName.getText().toString());
         item.setComplete(false);
 
         // Insert the new item
