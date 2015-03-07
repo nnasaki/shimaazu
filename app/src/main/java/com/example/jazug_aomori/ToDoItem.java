@@ -1,5 +1,7 @@
 package com.example.jazug_aomori;
 
+import java.util.Date;
+
 /**
  * Represents an item in a ToDo list
  */
@@ -25,6 +27,9 @@ public class ToDoItem {
 
     @com.google.gson.annotations.SerializedName("name")
     private String mName;
+
+    @com.google.gson.annotations.SerializedName("__createdAt")
+    private Date mDate;
 
     /**
      * ToDoItem constructor
@@ -110,5 +115,13 @@ public class ToDoItem {
 
     public void setName(String mName) {
         this.mName = mName;
+    }
+
+    public Date getDate() {
+        return mDate;
+    }
+
+    public void setDate(Date mDate) {
+        this.mDate = mDate;
     }
 }
