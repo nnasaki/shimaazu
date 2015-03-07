@@ -8,12 +8,15 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
@@ -80,6 +83,16 @@ public class ToDoActivity extends Activity {
             mToDoTable = mClient.getTable(ToDoItem.class);
 
             mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
+            mTextNewToDo.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView textView, int keyCode, KeyEvent keyEvent) {
+                    if (keyCode == EditorInfo.IME_ACTION_DONE) {
+                        addItem(textView);
+                        return true;
+                    }
+                    return false;
+                }
+            });
 
             // Create an adapter to bind the items with the view
             mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
