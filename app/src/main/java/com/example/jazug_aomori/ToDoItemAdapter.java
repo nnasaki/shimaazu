@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+
 /**
  * Adapter to bind a ToDoItem List to a view
  */
@@ -51,6 +53,10 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
         final TextView name = (TextView) row.findViewById(R.id.speakerName);
         name.setText(currentItem.getName());
+
+        final TextView saidTime = (TextView) row.findViewById(R.id.saidTime);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        saidTime.setText(simpleDateFormat.format(currentItem.getDate()));
 
         return row;
     }
