@@ -48,7 +48,9 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
         row.setTag(currentItem);
         final TextView checkBox = (TextView) row.findViewById(R.id.checkToDoItem);
         checkBox.setText(currentItem.getText());
-        checkBox.setEnabled(true);
+
+        final TextView name = (TextView) row.findViewById(R.id.speakerName);
+        name.setText(currentItem.getName());
 
         return row;
     }
