@@ -22,6 +22,9 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
+import com.microsoft.azure.engagement.EngagementAgent;
+import com.microsoft.azure.engagement.EngagementConfiguration;
+import com.microsoft.azure.engagement.activity.EngagementActivity;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.NextServiceFilterCallback;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
@@ -32,7 +35,7 @@ import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.*;
 
-public class ToDoActivity extends Activity {
+public class ToDoActivity extends EngagementActivity {
 
     /**
      * Mobile Service Client reference
@@ -115,6 +118,11 @@ public class ToDoActivity extends Activity {
 
         // C2D
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+
+        // Mobile Engagement
+        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+        engagementConfiguration.setConnectionString("Endpoint=nnasaki.device.mobileengagement.windows.net;SdkKey=356755c4fd724fdda99e65ae6401f3b4;AppId=shi000000");
+        EngagementAgent.getInstance(this).init(engagementConfiguration);
     }
 
     /**
