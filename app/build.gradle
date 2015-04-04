@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 'Google Inc.:Google APIs:21'
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.example.zumoappname"
-        minSdkVersion 8
-        targetSdkVersion 20
+        applicationId "com.example.shimaazu"
+        minSdkVersion 9
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -31,4 +31,6 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta+'
     compile (group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
+
+    compile 'com.google.android.gms:play-services-base:6.5.87'
 }

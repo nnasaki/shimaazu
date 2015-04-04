@@ -1,4 +1,4 @@
-package com.example.jazug_aomori;
+package com.example.shimaazu;
 
 
 import java.net.MalformedURLException;
@@ -28,6 +28,7 @@ import com.microsoft.windowsazure.mobileservices.http.ServiceFilter;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterRequest;
 import com.microsoft.windowsazure.mobileservices.http.ServiceFilterResponse;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 import static com.microsoft.windowsazure.mobileservices.table.query.QueryOperations.*;
 
@@ -36,7 +37,7 @@ public class ToDoActivity extends Activity {
     /**
      * Mobile Service Client reference
      */
-    private MobileServiceClient mClient;
+    public static MobileServiceClient mClient;
 
     /**
      * Mobile Service Table used to access data
@@ -59,6 +60,8 @@ public class ToDoActivity extends Activity {
     private ProgressBar mProgressBar;
 
     private EditText mTextName;
+
+    public static final String SENDER_ID = "920948523934";
 
     /**
      * Initializes the activity
@@ -109,6 +112,9 @@ public class ToDoActivity extends Activity {
         } catch (MalformedURLException e) {
             createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
         }
+
+        // C2D
+        NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
     }
 
     /**

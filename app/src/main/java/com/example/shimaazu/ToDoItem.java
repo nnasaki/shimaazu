@@ -1,4 +1,4 @@
-package com.example.jazug_aomori;
+package com.example.shimaazu;
 
 import java.util.Date;
 
