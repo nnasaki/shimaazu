@@ -1,13 +1,9 @@
-# JAZUG-AOMORI
-JAZUG青森　今から始めるMicrosoft Azure ～すぐに使えるクラウド活用術～ で使用したサンプルコード
+# しまあず
+JAZUG福島 第一回 ～ゆるく、ふわっと始める Microsoft Azure 勉強会～ で使用したサンプルコード
 
 ## スライドの場所
-[Microsoft Azure で始める サクサク Android開発 in jazug青森](http://www.slideshare.net/YamamotoMasaki/jazug-45543376)
 
 ## スライドごとのソース
-[Pull Requests · nnasaki/JAZUG-AOMORI](https://github.com/nnasaki/JAZUG-AOMORI/pulls?q=is%3Apr+is%3Aclosed) の一覧でご確認ください。Pull Request １つがスライド一枚に対応しています。
-
-プッシュなど後半のソースは含まれていません。続きは [JAZUG福島 第一回 ～ゆるく、ふわっと始める Microsoft Azure 勉強会～ - Japan Azure User Group | Doorkeeper](https://jazug.doorkeeper.jp/events/21078) で話します。
 
 ### API Key について
 com.example.jazug_aomori.ToDoActivity の L80 付近に埋め込まれていますので、お使いの環境にあわせて変更してください。
